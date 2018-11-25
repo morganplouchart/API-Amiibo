@@ -60,6 +60,18 @@ button.itemdelete:hover{
 
 button.ajout{border:none;}
 
+button.validerPanier{
+  background: #FF6F00 !important;
+  color:white;
+  cursor: pointer;
+}
+
+button.validerPanier:hover{
+  background: black !important;
+  color:white;
+  cursor: pointer;
+}
+
 th{
   text-align: center;
 }
