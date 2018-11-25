@@ -20,6 +20,35 @@ h3{
   margin:0;
   margin-bottom:20px;
 }
+.material-icons{font-size: 1rem;}
+
+.qte{color:#FF6F00; font-weight: bold;text-align: center;}
+
+.sup{
+  border-radius: 200px;
+  border:none;
+  background: #e65100;
+  color:white;
+  margin:5px;
+}
+.add{
+  border-radius: 100px;
+  border:none;
+  background: #FF6F00;
+  color:white;
+  margin:5px;
+}
+.itemdelete{
+  border-radius: 100px;
+  border:none;
+  background: black;
+  color:white;
+  margin:5px;
+}
+
+th{
+  text-align: center;
+}
 .hover {
   font-size: 1rem;
   color:white;
@@ -172,7 +201,7 @@ label{
   padding:20px;
 }
 img{
-  width:130px;
+  width:120px;
   height:150px;
 }
 .search{

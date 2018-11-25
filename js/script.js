@@ -45,7 +45,6 @@ for (var i = 0; i < filterShowAmiibo.length; i++) {
   return amiiboToReturn;
 }
 
-
 function panier() {
   localStorage.setItem("Ajout", JSON.stringify(ajoutItems[ajoutItems.length - 1]));
   localStorage.setItem("Title", JSON.stringify(ajoutTitle[ajoutTitle.length - 1]));
@@ -54,16 +53,23 @@ function panier() {
 
     let imagesURL = localStorage.getItem("Ajout").replace(/[\]"\[\\]/g,"");
     let titleURL = localStorage.getItem("Title").replace(/[\]"\[\\]/g,"");
+    let qte = 0;
 
     document.cookie = titleURL;
     document.cookie = imagesURL;
 
-    $('.ItemsIn').append("<tr class='delete'><td class='itemRemove'>" + titleURL + "</td><td class='imgRemove'>" + imagesURL + "</td><td><button class='itemdelete'><i class=' material-icons'>do_not_disturb_alt</i></button></td></tr>");
+    $('.ItemsIn').append("<tr class='delete'><td class='itemRemove'>" + titleURL + "</td><td class='imgRemove'>" + imagesURL + "<td class='qte'></td>" + qte + "</td><td style='display:flex;' ><button class='add'><i class=' material-icons'>exposure_plus_1</i></button><button class='sup'><i class=' material-icons'>exposure_neg_1</i></button><button class='itemdelete'><i class=' material-icons'>do_not_disturb_alt</i></button></td></tr>");
+
+    $('.add').on("click", function(){
+      $(this).parent().parent().children()[2].innerHTML = ++qte;
+    });
+    $('.sup').on("click", function(){
+      $(this).parent().parent().children()[2].innerHTML = --qte;
+    });
 
     if ($('.delete').length > 1) {
       $('.ItemsIn').css('overflow-y', 'scroll');
     }
-
     let countItems = $('.delete').length;
     $('.count').text(countItems);
 
@@ -80,19 +86,15 @@ function panier() {
     });
 
     $('.itemdelete').on("click",function() {
-      console.log(countItems);
-      $(this).parent().parent().remove();
-      $('.count').text(countItems--);
 
+      $(this).parent().parent().remove();
+      $('.count').text(--countItems);
       if (countItems == 0) {
         countItems = 0;
         ajoutTitle = [];
         ajoutItems = [];
-        //console.log(titleURL);
+        $(this).children().text("Ajouter");
         $('.count').text(countItems);
-        //$('.count').css('display','none');
-        //$('.inventaire').css('display','none');
-
       }
     });
 
@@ -116,15 +118,15 @@ const amiiboName = function showAmiibo(){
         if(showAmiibo.length == 0){
           showAmiibo = data.amiibo;
         }
-        let id = 1;
+        let id = 0;
         showAmiibo.forEach(function(showOneAmiibo) {
           $('.showAmiibo').append("<div class='col s6 m2 animate'><li><p class='title'>" + showOneAmiibo.character + "</p><a href="+ showOneAmiibo.image +" target='_blank'><img class='img' src=" + showOneAmiibo.image + "></a><button id=" + (id++) + " class='ajout' >Ajouter</button></li></div>");
+          //debugger;
         });
         $('.ajout').click(function() {
           let images = $(this).parent()[0].querySelector('a').innerHTML;
           let title = $(this).parent()[0].querySelector('p').innerHTML;
           ajoutTitle.push(title);
-          console.log(ajoutTitle);
           ajoutItems.push(images);
           panier();
         });
@@ -172,8 +174,10 @@ const amiiboSearch = function shoclasswAmiibo(resultSearch){
           $('.showAmiiboSearch').append("<div class='col s6 m2'><ul><li><p class='title'>" + showOneSearchAmiibo.amiiboSeries + "</p><a class='img' href="+ showOneSearchAmiibo.image +" target='_blank'><img src=" + showOneSearchAmiibo.image + "></a><button id=" + (id++) + " class='ajout' >Ajouter</button></li></ul></div>");
         });
         $('.ajout').click(function() {
-          let inventaire = $(this).parent()[0].querySelector('a').innerHTML;
-          ajoutItems.push(inventaire);
+          let images = $(this).parent()[0].querySelector('a').innerHTML;
+          let title = $(this).parent()[0].querySelector('p').innerHTML;
+          ajoutTitle.push(title);
+          ajoutItems.push(images);
           panier();
         });
       })
