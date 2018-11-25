@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>API Amiibo</title>
+  </head>
+  <body style="display:flex;">
+       <div class="menu">
+         <a href="index.html" class="logo"><img src="img/logo.png"/></a>
+         <form action="#" id="gameSeries">
+           <h2>Games Series</h2>
+          </form>
+        </div>
+  </div>
+    <div class="container" style="width:100%;">
+        <div style="display:flex;">
+          <div class="panier">
+            <a class="waves-effect waves-light btn"><p class="count pulse"></p><i class="large material-icons">shopping_basket</i></a>
+            <div class="inventaire">
+                <div class="close">X</div>
+                <h3>votre panier</h3>
+                <table style="overflow:auto;">
+                  <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Amiibo</th>
+                        <th>Actions</th>
+                    </tr>
+                  </thead>
+
+                    <div class="scroll">
+                      <tbody class="ItemsIn">
+
+                      </tbody>
+                    </div>
+
+                </table>
+            </div>
+          </div>
+          <div class="input-field" style="display:flex;">
+            <input id="search" type="text" placeholder="Search press enter" onclick="onClick()">
+            <p class="SearchItems"></p>
+          </div>
+        </div>
+        <div class="row amiibo">
+          <div class="showAmiibo">
+            <ul></ul>
+          </div>
+          <div class="showAmiiboSearch">
+            <ul></ul>
+          </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/script.js"></script>
+  </html>
