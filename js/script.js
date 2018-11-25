@@ -165,7 +165,7 @@ const amiiboSearch = function shoclasswAmiibo(resultSearch){
   Chargement = true;
   return new Promise(function(reject) {
     if (Chargement) {
-      $.get(`http://www.amiiboapi.com/api/amiibo/?name=${resultSearch}`,function(data){
+      $.get(`http://www.amiiboapi.com/api/amiibo/?character=${resultSearch}`,function(data){
         let id = 1;
         let showAmiiboSearch = data.amiibo;
         showAmiiboSearch.forEach(function(showOneSearchAmiibo) {
