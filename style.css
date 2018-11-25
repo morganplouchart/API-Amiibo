@@ -8,7 +8,7 @@ h2{
   font-weight: bold;
   text-align: center;
   padding: 10px 0px 10px 0px;
-  margin:0;
+  margin:0px 0px 20px 0px;
 }
 h3{
   font-size: 1rem;
@@ -24,31 +24,48 @@ h3{
 
 .qte{color:#FF6F00; font-weight: bold;text-align: center;}
 
-.sup{
+button.sup{
   border-radius: 200px;
   border:none;
-  background: #e65100;
+  background: #e65100 !important;
   color:white;
   margin:5px;
 }
-.add{
+button.add{
   border-radius: 100px;
   border:none;
-  background: #FF6F00;
+  background: #FF6F00 !important;
   color:white;
   margin:5px;
 }
-.itemdelete{
+button.itemdelete{
   border-radius: 100px;
   border:none;
-  background: black;
+  background: black !important;
   color:white;
   margin:5px;
 }
+button.sup:hover{
+  color:white !important;
+  cursor: pointer;
+}
+button.add:hover{
+  color:white !important;
+  cursor: pointer;
+}
+button.itemdelete:hover{
+  color:white !important;
+  cursor: pointer;
+}
+
+button.ajout{border:none;}
 
 th{
   text-align: center;
 }
+
+.validPanier button{background: black; color:white; border:none;}
+.validPanier button:hover{background: #e65100; color:white; border:none;}
 .hover {
   font-size: 1rem;
   color:white;
@@ -148,16 +165,23 @@ a.logo{
 
 
 button{
-  background: white;
+  background:none !important;
   color:#333;
-  border: 1px solid #333;
+  border: none;
   padding:10px;
   width: 100%;
+  cursor: pointer;
 }
 
 button:hover{
-  background: black;
-  color:white;
+  background: none;
+  color:#FF6F00;
+  cursor: pointer;
+}
+button:active{
+  background: none;
+  color:red;
+  cursor: pointer;
 }
 
 nav{

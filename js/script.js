@@ -60,6 +60,8 @@ function panier() {
 
     $('.ItemsIn').append("<tr class='delete'><td class='itemRemove'>" + titleURL + "</td><td class='imgRemove'>" + imagesURL + "<td class='qte'></td>" + qte + "</td><td style='display:flex;' ><button class='add'><i class=' material-icons'>exposure_plus_1</i></button><button class='sup'><i class=' material-icons'>exposure_neg_1</i></button><button class='itemdelete'><i class=' material-icons'>do_not_disturb_alt</i></button></td></tr>");
 
+    $('.validPanier').html("<button>Valider le panier</button>");
+
     $('.add').on("click", function(){
       $(this).parent().parent().children()[2].innerHTML = ++qte;
     });
@@ -93,7 +95,9 @@ function panier() {
         countItems = 0;
         ajoutTitle = [];
         ajoutItems = [];
-        $(this).children().text("Ajouter");
+        if ($('.delete').length <= 0) {
+          $('.inventaire').css('display','none');
+        }
         $('.count').text(countItems);
       }
     });
@@ -120,7 +124,7 @@ const amiiboName = function showAmiibo(){
         }
         let id = 0;
         showAmiibo.forEach(function(showOneAmiibo) {
-          $('.showAmiibo').append("<div class='col s6 m2 animate'><li><p class='title'>" + showOneAmiibo.character + "</p><a href="+ showOneAmiibo.image +" target='_blank'><img class='img' src=" + showOneAmiibo.image + "></a><button id=" + (id++) + " class='ajout' >Ajouter</button></li></div>");
+          $('.showAmiibo').append("<div class='col s6 m2 animate'><li><p class='title'>" + showOneAmiibo.character + "</p><a href="+ showOneAmiibo.image +" target='_blank'><img class='img' src=" + showOneAmiibo.image + "></a><button id=" + (id++) + " class='ajout' ><i class='small material-icons'>add_circle_outline</i></button></li></div>");
           //debugger;
         });
         $('.ajout').click(function() {
@@ -171,7 +175,7 @@ const amiiboSearch = function shoclasswAmiibo(resultSearch){
         let id = 1;
         let showAmiiboSearch = data.amiibo;
         showAmiiboSearch.forEach(function(showOneSearchAmiibo) {
-          $('.showAmiiboSearch').append("<div class='col s6 m2'><ul><li><p class='title'>" + showOneSearchAmiibo.amiiboSeries + "</p><a class='img' href="+ showOneSearchAmiibo.image +" target='_blank'><img src=" + showOneSearchAmiibo.image + "></a><button id=" + (id++) + " class='ajout' >Ajouter</button></li></ul></div>");
+          $('.showAmiiboSearch').append("<div class='col s6 m2'><ul><li><p class='title'>" + showOneSearchAmiibo.amiiboSeries + "</p><a class='img' href="+ showOneSearchAmiibo.image +" target='_blank'><img src=" + showOneSearchAmiibo.image + "></a><button id=" + (id++) + " class='ajout' ><i class='small material-icons'>add_circle_outline</i></button></li></ul></div>");
         });
         $('.ajout').click(function() {
           let images = $(this).parent()[0].querySelector('a').innerHTML;
